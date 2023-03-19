@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="buckymaler.com">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/php/formulaire.php">
 </head>
 
 <body>
@@ -126,11 +127,12 @@
           Aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
         </p>
       </div>
-      <form>
-        <input type="email" placeholder="Votre courriel">
-        <input type="text" placeholder="Sujet">
-        <textarea placeholder="Message"></textarea>
-        <input type="submit" value="Envoyer">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <input type="email" name="email" placeholder="Votre courriel">
+        <input type="text" name="sujet" placeholder="Sujet">
+        <textarea name="message" id="message" placeholder="Message"></textarea>
+        <input type="hidden" name="honeypot" value="">
+        <input type="submit" name="submit" value="Envoyer">
       </form>
     </div>
     <p class="copyright">&copy; Apollo Project</p>
