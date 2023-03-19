@@ -5,6 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
+$message = '';
+
 
 if (isset($_POST['submit'])) {
     if (!empty($_POST['honeypot'])) {
@@ -14,7 +16,6 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $sujet = $_POST['sujet'];
     $message = $_POST['message'];
-    $submit = $_POST['submit'];
 
     $mail = new PHPMailer(true);
 
@@ -37,10 +38,10 @@ if (isset($_POST['submit'])) {
         $mail->Body    = $message;
 
 
-        $mail->send($submit);
-        header("location:index.html#contact?success=1");
+        $mail->send();
+        $message = 'Le message a bien été envoyé !';
     } catch (Exception $e) {
-        echo "Le message n'a pas pu être envoyé. Erreur : {$mail->ErrorInfo}";
+        $message = "Le message n'a pas pu être envoyé. Erreur : {$mail->ErrorInfo}";
     }
 }
 
